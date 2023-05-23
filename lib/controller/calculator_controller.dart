@@ -1,5 +1,3 @@
-
-
 import '../model/calculator_model.dart';
 
 enum Operation {add, subtract, multiply, divide}
@@ -29,6 +27,21 @@ class CalculatorController {
         } else {
           throw Exception('Cannot divide by zero');
         }
+      default:
+        throw Exception('Invalid operation');
+    }
+  }
+
+  String operationToString(Operation operation) {
+    switch (operation) {
+      case Operation.add:
+        return '+';
+      case Operation.subtract:
+        return '-';
+      case Operation.multiply:
+        return '*';
+      case Operation.divide:
+        return '/';
       default:
         throw Exception('Invalid operation');
     }
