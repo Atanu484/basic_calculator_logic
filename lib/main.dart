@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'controller/calculator_controller.dart';
+import 'screens/conversion_screen.dart';
 
 void main() {
   runApp(CalculatorApp());
@@ -11,7 +12,7 @@ class CalculatorApp extends StatelessWidget {
     return MaterialApp(
       title: 'Calculator',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
       ),
       debugShowCheckedModeBanner: false,
       home: CalculatorHomePage(title: 'Flutter Calculator'),
@@ -45,8 +46,10 @@ class _CalculatorHomePageState extends State<CalculatorHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey[50],
       appBar: AppBar(
         title: Text(widget.title!),
+        backgroundColor: Colors.teal,
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -61,6 +64,8 @@ class _CalculatorHomePageState extends State<CalculatorHomePage> {
                 },
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
                   border: OutlineInputBorder(),
                   labelText: "Number 1",
                 ),
@@ -74,6 +79,8 @@ class _CalculatorHomePageState extends State<CalculatorHomePage> {
                 },
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
                   border: OutlineInputBorder(),
                   labelText: "Number 2",
                 ),
@@ -109,6 +116,18 @@ class _CalculatorHomePageState extends State<CalculatorHomePage> {
               child: Text(
                 'Result: $_result',
                 style: Theme.of(context).textTheme.headline4,
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ConversionScreen()),
+                );
+              },
+              child: Text('Go to KM-Mile Converter'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.teal,
               ),
             ),
           ],
