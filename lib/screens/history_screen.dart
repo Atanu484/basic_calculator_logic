@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import '../services/database_service.dart';
 import '../model/history_model.dart';
+import '../services/database_services.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HistoryScreen extends StatelessWidget {
   final DatabaseService _dbService = DatabaseService.instance;
