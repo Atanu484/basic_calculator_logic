@@ -37,9 +37,9 @@ class DatabaseService {
   Future<HistoryModel> create(HistoryModel history) async {
     final db = await instance.database;
     final Map<String, dynamic> data = history.toMap();
-    data.remove('id');  // This will remove the 'id' key from the map.
+    data.remove('id');
     final id = await db.insert('history', data);
-    return history.copyWith(id: id);  // Assuming you have a `copyWith` method in your `HistoryModel` class.
+    return history.copyWith(id: id);
   }
 
   Future<List<HistoryModel>> readAll() async {

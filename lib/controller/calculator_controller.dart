@@ -1,4 +1,5 @@
 import '../model/calculator_model.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 enum Operation {add, subtract, multiply, divide}
 
@@ -44,6 +45,18 @@ class CalculatorController {
         return '/';
       default:
         throw Exception('Invalid operation');
+    }
+  }
+  double evaluateEquation(String equation) {
+    try {
+      Parser p = Parser();
+      Expression exp = p.parse(equation);
+      ContextModel cm = ContextModel();
+      double eval = exp.evaluate(EvaluationType.REAL, cm);
+
+      return eval;
+    } catch (e) {
+      throw Exception('Invalid equation');
     }
   }
 }
