@@ -13,11 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,  // This line will remove the debug banner.
+      debugShowCheckedModeBanner: false, 
       title: 'Calculator',
       theme: ThemeData(
         primarySwatch: Colors.teal,
-        visualDensity: VisualDensity.adaptivePlatformDensity,  // This line will apply platform-specific density for UI.
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(),
     );
@@ -86,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Enter a number',
-                  labelStyle: TextStyle(fontSize: 18),  // Style the label text
+                  labelStyle: TextStyle(fontSize: 18),
                 ),
                 onChanged: (value) {
                   _number1 = double.tryParse(value) ?? 0;
@@ -98,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Enter another number',
-                  labelStyle: TextStyle(fontSize: 18),  // Style the label text
+                  labelStyle: TextStyle(fontSize: 18),
                 ),
                 onChanged: (value) {
                   _number2 = double.tryParse(value) ?? 0;
@@ -109,19 +109,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   IconButton(
-                    icon: Icon(Icons.add, size: 30),  // Increase the size of the icon
+                    icon: Icon(Icons.add, size: 30),
                     onPressed: () => _calculate(Operation.add),
                   ),
                   IconButton(
-                    icon: Icon(Icons.remove, size: 30),  // Increase the size of the icon
+                    icon: Icon(Icons.remove, size: 30), 
                     onPressed: () => _calculate(Operation.subtract),
                   ),
                   IconButton(
-                    icon: Icon(Icons.clear, size: 30),  // Increase the size of the icon
+                    icon: Icon(Icons.clear, size: 30),
                     onPressed: () => _calculate(Operation.multiply),
                   ),
                   IconButton(
-                    icon: Icon(Icons.format_line_spacing, size: 30),  // Increase the size of the icon
+                    icon: Icon(Icons.format_line_spacing, size: 30), 
                     onPressed: () => _calculate(Operation.divide),
                   ),
                 ],
