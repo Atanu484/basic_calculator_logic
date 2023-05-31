@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'controller/calculator_controller.dart';
 import 'model/history_model.dart';
 import 'screens/conversion_screen.dart';
@@ -6,9 +7,12 @@ import 'screens/history_screen.dart';
 import 'package:math_expressions/math_expressions.dart';
 import 'services/database_services.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   @override
@@ -118,12 +122,16 @@ class _MyHomePageState extends State<MyHomePage> {
       double eval = exp.evaluate(EvaluationType.REAL, cm);
 
       _displayResult = eval.toString();
+
+      setState(() {});
+
       await _dbService.create(HistoryModel(id: 0,
           calculation: '$expression = $_displayResult',
           timestamp: DateTime.now()));
     } catch (e) {
       _displayResult = 'Error: ${e.toString()}';
+
+      setState(() {});
     }
-    setState(() {});
   }
 }

@@ -30,10 +30,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  sqflite: any
   cloud_firestore: ^4.6.0
   provider: ^6.0.1
-  firebase_core: ^2.4.0
+  firebase_core: ^2.13.0
   firebase_storage: ^11.0.7
   firebase_auth: ^4.6.1
   path_provider: any
