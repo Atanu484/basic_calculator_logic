@@ -1,5 +1,3 @@
-
-
 import '../model/calculator_model.dart';
 
 enum Operation {add, subtract, multiply, divide}
