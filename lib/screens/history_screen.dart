@@ -23,11 +23,11 @@ class HistoryScreen extends StatelessWidget {
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 return Card(  // Wrap ListTile with a Card.
-                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),  // Add some margin to the Card.
-                  elevation: 2,  // Add some shadow.
+                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  elevation: 2,
                   child: ListTile(
-                    title: Text(snapshot.data![index].calculation, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),  // Increase the size and make it bold.
-                    subtitle: Text(snapshot.data![index].timestamp.toIso8601String(), style: TextStyle(color: Colors.grey[600])),  // Change the color to grey.
+                    title: Text(snapshot.data![index].calculation, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                    subtitle: Text(snapshot.data![index].timestamp.toIso8601String(), style: TextStyle(color: Colors.grey[600])),
                   ),
                 );
               },
