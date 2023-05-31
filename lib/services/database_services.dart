@@ -20,15 +20,4 @@ class DatabaseService {
     }
     return [];
   }
-
-  Future<void> delete(HistoryModel historyModel) async {
-    QuerySnapshot querySnapshot = await _firestoreInstance
-        .collection('history')
-        .where('id', isEqualTo: historyModel.id)
-        .get();
-
-    if (querySnapshot.docs.isNotEmpty) {
-      await _firestoreInstance.collection('history').doc(querySnapshot.docs.first.id).delete();
-    }
-  }
 }
